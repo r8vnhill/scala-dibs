@@ -1,19 +1,10 @@
+import CommonSettingsPlugin.commonSettings
+
 ThisBuild / version := "1.0.0"
 
 ThisBuild / scalaVersion := "3.5.1"
 
-lazy val commonSettings = Seq(
-    scalacOptions ++= Seq(
-        "-deprecation",
-        "-feature",
-        "-unchecked"
-    ),
-    libraryDependencies ++= Seq(
-        "org.scalatest" %% "scalatest" % "3.2.19" % Test,
-        "org.scalactic" %% "scalactic" % "3.2.19" % Test,
-        "org.scalatestplus" %% "scalacheck-1-18" % "3.2.19.0" % Test,
-    ),
-)
+enablePlugins(CommonSettingsPlugin)
 
 lazy val root = (project in file("."))
   .aggregate(intro)
@@ -22,20 +13,7 @@ lazy val root = (project in file("."))
       commonSettings,
   )
 
-lazy val intro = (project in file("intro"))
-  .aggregate(exceptions)
-  .settings(
-      name := "intro",
-      commonSettings
-  )
-
-lazy val exceptions = (project in file("intro/exceptions"))
-  .settings(
-      name := "exceptions",
-      commonSettings,
-      libraryDependencies ++= Seq(),
-      idePackagePrefix := Some("cl.ravenhill")
-  )
+lazy val intro = project in file("intro")
 
 lazy val testing = (project in file("testing"))
   .aggregate(pbt)
@@ -81,16 +59,4 @@ lazy val operatorOverload = (project in file("oop/operator-overload"))
       idePackagePrefix := Some("cl.ravenhill")
   )
 
-lazy val fp = (project in file("fp"))
-  .aggregate(lambdas)
-  .settings(
-      name := "fp",
-      commonSettings
-  )
-
-lazy val lambdas = (project in file("fp/lambdas"))
-  .settings(
-      name := "lambdas",
-      commonSettings,
-      idePackagePrefix := Some("cl.ravenhill")
-  )
+lazy val fp = project in file("fp")
