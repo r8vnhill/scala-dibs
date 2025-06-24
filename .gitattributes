@@ -1,0 +1,53 @@
+# Ensure all text files use LF (Unix-style line endings)
+* text=auto eol=lf
+
+# Treat common file types as text
+*.sbt     text
+*.scala   text
+*.sc      text
+*.java    text
+*.c       text
+*.cpp     text
+*.h       text
+*.json    text
+*.yml     text
+*.yaml    text
+*.md      text
+*.html    text
+*.css     text
+*.ts      text
+*.js      text
+*.sh      text eol=lf
+
+# Treat common binaries as binary to avoid diff/merge conflicts
+*.png     binary
+*.jpg     binary
+*.jpeg    binary
+*.gif     binary
+*.ico     binary
+*.pdf     binary
+*.zip     binary
+*.gz      binary
+*.jar     binary
+*.class   binary
+
+# Highlight SBT files properly on GitHub
+*.sbt linguist-language=Scala
+
+# GitHub linguist: exclude generated files from stats
+/project/metals.sbt linguist-generated=true
+/.bloop/**          linguist-generated=true
+/.metals/**         linguist-generated=true
+/.bsp/**            linguist-generated=true
+/target/**          linguist-generated=true
+
+# Shell scripts
+*.sh text eol=lf
+*.bash text eol=lf
+
+# Make sure Git recognizes README and LICENSE correctly
+README* text
+LICENSE* text
+
+# Optional: Force normalization of files already committed
+# Run once if necessary: `git add --renormalize .`

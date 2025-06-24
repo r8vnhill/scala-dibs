@@ -1,0 +1,55 @@
+# OS-specific
+.DS_Store
+
+# sbt build artifacts
+dist/
+target/
+lib_managed/
+src_managed/
+.cache/
+.history
+logs/
+project/metals.sbt
+project/local-plugins.sbt
+.sbt-scripted/
+null/
+
+# Bloop & Metals
+.bsp/
+.bloop/
+.metals/
+metals.sbt
+
+# IntelliJ IDEs
+.idea/
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/dictionaries
+.idea/**/shelf
+.idea/**/aws.xml
+.idea/**/contentModel.xml
+.idea/**/dataSources/
+.idea/**/httpRequests
+.idea_modules/
+.idea/replstate.xml
+.idea/sonarlint/
+.idea/caches/build_file_checksums.ser
+.worksheet/
+
+# VS Code
+.vscode/
+
+# Deprecated or unused
+.ensime
+.ensime_cache/
+*.iws
+
+# Scala
+*.class
+*.log
+hs_err_pid*
+
+# Coverage / test reports
+/coverage/
+/test-reports/
