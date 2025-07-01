@@ -7,41 +7,43 @@ ThisBuild / name := "scala-dibs"
 
 // Common compiler options to enable useful warnings and ensure consistent encoding
 lazy val commonSettings = Seq(
-    scalacOptions ++= Seq(
-        "-deprecation", // Warn about the use of deprecated APIs
-        "-unchecked",   // Enable additional warnings where generated code depends on assumptions
-        "-feature",     // Warn when using features that need to be explicitly imported
-        "-explain",     // Provide explanations for type errors
-        "-encoding", "utf8" // Set UTF-8 encoding for source files
-    )
+  scalacOptions ++= Seq(
+    "-deprecation", // Warn about the use of deprecated APIs
+    "-unchecked", // Enable additional warnings where generated code depends on assumptions
+    "-feature", // Warn when using features that need to be explicitly imported
+    "-explain", // Provide explanations for type errors
+    "-encoding",
+    "utf8" // Set UTF-8 encoding for source files
+  )
 )
 
 // Leaf module that contains examples for product types (e.g., tuples, case classes)
-// Located under type-fundamentals/algebraic-data-types/product-types
-lazy val productTypes = project
-    .in(file("type-fundamentals/algebraic-data-types/product-types"))
-    .settings(commonSettings *)
+// Located under type-fundamentals/algebraic-data-types/product
+lazy val product = project
+  .in(file("type-fundamentals/algebraic-data-types/product"))
+  .settings(commonSettings*)
+  .settings(libraryDependencies += "javax.inject" % "javax.inject" % "1")
 
 // Intermediate module that groups all algebraic data types (ADTs)
 // Aggregates and depends on the productTypes module
 lazy val algebraicDataTypes = project
-    .in(file("type-fundamentals/algebraic-data-types"))
-    .aggregate(productTypes)
-    .dependsOn(productTypes)
-    .settings(commonSettings *)
+  .in(file("type-fundamentals/algebraic-data-types"))
+  .aggregate(product)
+  .dependsOn(product)
+  .settings(commonSettings*)
 
 // High-level module that groups all type fundamentals
 // Aggregates and depends on algebraicDataTypes
 lazy val typeFundamentals = project
-    .in(file("type-fundamentals"))
-    .aggregate(algebraicDataTypes)
-    .dependsOn(algebraicDataTypes)
-    .settings(commonSettings *)
+  .in(file("type-fundamentals"))
+  .aggregate(algebraicDataTypes)
+  .dependsOn(algebraicDataTypes)
+  .settings(commonSettings*)
 
 // Root project: aggregates everything but is not published
 // Useful for local development and IDE import
 lazy val root = project
-    .in(file("."))
-    .aggregate(typeFundamentals)
-    .settings(commonSettings *)
-    .settings(publish / skip := true) // Do not publish this aggregation-only root
+  .in(file("."))
+  .aggregate(typeFundamentals)
+  .settings(commonSettings*)
+  .settings(publish / skip := true) // Do not publish this aggregation-only root
