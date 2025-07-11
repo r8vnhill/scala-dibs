@@ -17,6 +17,10 @@ lazy val commonSettings = Seq(
   )
 )
 
+lazy val basics = project
+  .in(file("type-fundamentals/basics"))
+  .settings(commonSettings*)
+
 // Leaf module that contains examples for product types (e.g., tuples, case classes)
 // Located under type-fundamentals/algebraic-data-types/product
 lazy val product = project
@@ -36,8 +40,8 @@ lazy val algebraicDataTypes = project
 // Aggregates and depends on algebraicDataTypes
 lazy val typeFundamentals = project
   .in(file("type-fundamentals"))
-  .aggregate(algebraicDataTypes)
-  .dependsOn(algebraicDataTypes)
+  .aggregate(basics, algebraicDataTypes)
+  .dependsOn(basics, algebraicDataTypes)
   .settings(commonSettings*)
 
 // Root project: aggregates everything but is not published

@@ -2,6 +2,7 @@
 
 [![License: BSD-2-Clause](https://img.shields.io/badge/License-BSD%202--Clause-blue.svg)](./LICENSE)
 [![Scala](https://img.shields.io/badge/Scala-3.0%2B-blue?logo=scala)](https://www.scala-lang.org/download/)
+[![sbt](https://img.shields.io/badge/build%20tool-sbt-02303A?logo=sbt)](https://www.scala-sbt.org/)
 [![Educational](https://img.shields.io/badge/purpose-educational-yellow)](https://dibs.ravenhill.cl)
 [![Status](https://img.shields.io/badge/status-stable-brightgreen)]()
 [![DIBS Site](https://img.shields.io/badge/website-dibs.ravenhill.cl-purple)](https://dibs.ravenhill.cl)
@@ -9,7 +10,7 @@
 Companion code for the **“Diseño e Implementación de Bibliotecas de Software” (DIBS)** course, demonstrating core Scala techniques for building reusable libraries.
 
 >[!note]
-> The course lectures and materials are in Spanish, but **all code and documentation here are in English** for wider accessibility.
+> While the course is taught in Spanish, **all code and project content is in English** to encourage accessibility and reuse.
 
 ## 📖 Table of Contents
 
@@ -20,7 +21,6 @@ Companion code for the **“Diseño e Implementación de Bibliotecas de Software
   - [📝 Getting Started](#-getting-started)
     - [Prerequisites](#prerequisites)
     - [Clone \& Compile](#clone--compile)
-  - [🤝 Contributing](#-contributing)
   - [🛡️ License](#️-license)
 
 ## 🎓 Lessons
@@ -55,16 +55,6 @@ git clone https://github.com/r8vnhill/scala-dibs.git
 cd scala-dibs
 sbt compile
 ```
-
-## 🤝 Contributing
-
-This repository is intended as an **educational companion** and isn’t actively maintained as a library.
-Still, if you spot an error, have an improvement, or a question:
-
-1. Open an issue: [https://github.com/r8vnhill/scala-dibs/issues](https://github.com/r8vnhill/scala-dibs/issues)
-2. Read our [Code of Conduct](./CODE_OF_CONDUCT.md)
-
-Feel free to fork and adapt these examples for your own teaching or learning!
 
 ## 🛡️ License
 
